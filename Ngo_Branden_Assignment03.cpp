@@ -80,42 +80,71 @@ void quickSort(vector<int>& v, int low, int high) {
         quickSort(v, pi + 1, high);
     }
 }
+void doBubble(vector<int> v){
+    printVector(v);
+    bubbleSort(v);
+    isSorted(v);
+    printVector(v);
+    cout << endl;
+}
+
+void doSelect (vector<int> v){
+    printVector(v);
+    selectionSort(v);
+    isSorted(v);
+    printVector(v);
+    cout << endl;
+}
+
+void doInsert(vector<int> v){
+    printVector(v);
+    insertionSort(v);
+    isSorted(v);
+    printVector(v);
+    cout << endl;
+}
+
+void doQuick (vector<int> v){
+    printVector(v);
+    int low = 0;
+    int high = v.size() -1;
+    quickSort(v, low, high);
+    isSorted(v);
+    printVector(v);
+    cout << endl;
+}
 
 int main() {
     //vector 1 (C++ sort)
+    cout << "--- C++ SORT ---" << endl;
     vector<int> nums = {7, 23, 9, 7, 6, 22, 41, 8, 0};
     printVector(nums);
     sort(nums.begin(), nums.end());
     isSorted(nums);
     printVector(nums);
+    cout << endl;
+    //actual sorts
+    vector<int> ran = {56, 43, 32, 7, 12, 4, 23, 32, 0};
+    vector<int> sor = {23, 23, 24, 64, 82, 89, 90, 99, 100, 112, 118};
+    vector<int> rev = {99, 98, 78, 67, 67, 58, 20, 19, 5, 2, 1, 1, 0, 0, 0};
     //vector 2 bubblesort
-    cout << endl;
-    vector<int> vec = {56, 43, 32, 7, 12, 4, 23, 32, 0};
-    printVector(vec);
-    bubbleSort(vec);
-    isSorted(vec);
-    printVector(vec);
+    cout << "--- BUBBLE SORT ---" << endl;
+    doBubble(ran);
+    doBubble(sor);
+    doBubble(rev);
     //vector 3 selection sort
-    cout<<endl;
-    vector<int> narr = {23, 221, 234, 64, 8, 212, 66, 99, 0, 12, 8};
-    printVector(narr);
-    selectionSort(narr);
-    isSorted(narr);
-    printVector(narr);
+    cout << "--- SELECTION SORT ---" << endl;
+    doSelect(ran);
+    doSelect(sor);
+    doSelect(rev);
     //vector 4 insertion sort
-    cout << endl;
-    vector<int> bleh = {21, 78, 1, 1, 1, 204, 8, 24, 0, 78, 21};
-    printVector(bleh);
-    insertionSort(bleh);
-    isSorted(bleh);
-    printVector(bleh);
+    cout << "--- INSERTION SORT ---" << endl;
+    doInsert(ran);
+    doInsert(sor);
+    doInsert(rev);
     //vector 5 quick sort
-    cout << endl;
-    vector<int> boop = {21, 12, 90, 123, 90, 204, 8, 21, 10, 76, 80};
-    printVector(boop);
-    int low = 0;
-    int high = boop.size() -1;
-    quickSort(boop, low, high);
-    isSorted(boop);
-    printVector(boop);
+    cout << "--- QUICK SORT ---" << endl;
+    doQuick(ran);
+    doQuick(sor);
+    doQuick(rev);
 }
